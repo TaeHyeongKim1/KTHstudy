@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>공항주차예약</title>
+
+<style>
+html, body { margin: 0; padding: 0; height: 100%; }
+header {
+   width: 100%; 
+   height: 15%;
+    
+}
+
+header {
+    position: relative;
+}
+
+header img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 잘리지 않고 화면을 채우도록 설정 */
+}
+nav { 
+   width: 15%; height: 70%; float: left;
+   background: orange;
+}
+section {
+   width: 70%; height: 70%; float: left;
+   background: olivedrab;
+}
+aside {
+   width: 15%; height: 70%; float: left;
+   background: orange;
+}
+footer { 
+   width: 100%; height: 15%; clear: both; 
+   background: plum;
+}
+/* li{display:inline;} */
+
+html, body { margin: 0; padding: 0; height: 100%; }
+
+.horizontal-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox 적용 */
+    flex-direction: row; /* 수평으로 배치 */
+}
+
+.horizontal-menu li {
+    position: relative;
+    flex: 1; /* 동일한 너비 */
+}
+
+.horizontal-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.horizontal-menu li:hover {
+    background-color: #f2f2f2;
+}
+
+.horizontal-menu .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.horizontal-menu .submenu li {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    flex: 1;
+    
+}
+
+.horizontal-menu .submenu li a {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.horizontal-menu li:hover .submenu {
+    display: flex; 
+    /* Flexbox 적용 */
+    flex-direction: row; /* 세로로 나오게 함 */
+    width: auto; 
+    /* 너비 자동 조정 */
+}
+
+ul {
+    display: block;
+/*     list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em; */
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px; /* 40px*/
+    unicode-bidi: isolate;
+}
+
+/*슬라이더  */
+#big_slide .sl_back a{
+   display:none;
+   
+}
+#big_slide .sl_back #slBck_selected{
+   display:block;
+}
+#big_slide .sl_back img{
+     	width:100%;
+      height:500px;
+}
+   
+#big_slide .sl_button{
+      right:20px;
+/*       bottom:20px; */
+}
+
+#big_slide input[type=button]{
+   background-color:white;
+   border-radius:999px;
+   width:30px;
+   height:30px;
+}
+#big_slide .sl_button #slBtn_selected{
+   display:inline-block;
+   background-color:red;
+   width:60px;
+/*    z-index:2; */
+}
+
+</style>
+<script type="text/javascript">
+// 버튼 갯수 저장하는 상수
+const btn_num = 2;
+// 어느 버튼에 포커스되어있는지 판단하는 변수
+var btn_cursor = 0;//ctrl_big_slide에서 사용
+
+window.onload=function(){
+   var slBtnObj = document.querySelector("#big_slide .sl_button");
+   // 0~1의 값을 ctrl_big_slide 함수에 전달하는 버튼 생성
+   for (var i = 0; i<btn_num; i++){
+      slBtnObj.innerHTML += `<input type="button" onClick="ctrl_big_slide(${i})"></input>`;
+   }
+   var slBckArr = document.querySelectorAll("#big_slide .sl_back a");
+   slBckArr[0].id = "slBck_selected";
+   var slBtnArr = document.querySelectorAll("#big_slide .sl_button input");
+   slBtnArr[0].id = "slBtn_selected";
+   // 5초 간격으로 아래에 함수를 -1을 전달하고 반복 호출
+   setInterval(ctrl_big_slide,2000,-1)
+}  
+
+
+function ctrl_big_slide(num){
+   // 자동으로 호출하여 넘겨줄 경우, 특정 인덱스가 아닌 -1을 전달하여 구분
+   if (num == -1){
+      num = (btn_cursor + 1)>=2?0:btn_cursor+1   
+   }
+   
+   var slBckArr = document.querySelectorAll("#big_slide .sl_back a");
+   var slBtnArr = document.querySelectorAll("#big_slide .sl_button input");
+   for (var i = 0; i<btn_num; i++){
+      slBckArr[i].id = "";
+      slBtnArr[i].id = "";
+   }
+   slBckArr[num].id = "slBck_selected";
+   slBtnArr[num].id = "slBtn_selected";
+   
+   btn_cursor = num
+}
+</script>
+</head>
+<body>
+<!-- <nav id="gnb" class="web"> -->
+<header>
+<div id="gnb" class="web">
+    <ul class="horizontal-menu">
+        <li><a href="/reservation/recheck.do">주차예약</a>
+            <ul class="submenu">
+                <li><a href="main.html">주차예약신청</a></li>
+                <li><a href="reserveCheck.jsp">예약신청확인</a></li>
+            </ul>
+        </li>
+        <li><a href="/humandiscount/intro.do">중고차량조회</a>
+            <ul class="submenu">
+                <li><a href="/humandiscount/intro.do">기아</a></li>
+                <li><a href="/humandiscount/viewChk.do">현대</a></li>
+                <li><a href="/humandiscount/viewChk.do">삼성</a></li>
+            </ul>
+        </li>
+        <li><a href="/refund/privacy.do">로그인</a>
+<!--             <ul class="submenu">
+                <li><a href="/refund/privacy.do">요금 환불 신청</a></li>
+                <li><a href="/refund/search.do">신청결과 조회</a></li>
+            </ul> 
+-->
+        </li>
+        <li><a href="/period/applyPage.do">회원가입</a>
+<!--             <ul class="submenu">
+                <li><a href="/period/noticeList.do">공지사항</a></li>
+                <li><a href="/period/applyPage.do">이용안내</a></li>
+                <li><a href="/period/periodApply.do">정기권 현황/신청</a></li>
+                <li><a href="/period/refundList.do">정기권 환불</a></li>
+            </ul> 
+-->
+        </li>
+<!--         <li><a href="/notice/notice.do">이용안내</a>
+            <ul class="submenu">
+                <li><a href="/notice/notice.do">이용안내</a></li>
+                <li><a href="/notice/questionsList.do">자주묻는 질문</a></li>
+                <li><a href="/notice/privacyInfo.do">개인정보처리방침</a></li>
+            </ul>
+        </li> -->
+    </ul>
+    </div>
+
+</header>
+     <div id="big_slide">
+      <div class="sl_back">
+         <a target="_parent" href="#">
+            <img src="https://park.airport.co.kr/resources/images/common/img-visual-01.png">
+         </a>
+         <a target="_parent" href="#">
+            <img src="https://park.airport.co.kr/resources/images/common/img-visual-02.png">
+         </a>
+      </div>
+      <div class="sl_button">
+      </div>
+   </div> 
+<!--    </nav> -->
+<!--    <nav>네비게이션바</nav>
+   <section>섹션</section>
+   <aside>어사이드</aside>
+    <footer>아래(풋)</footer>-->
+</body>
+</html>

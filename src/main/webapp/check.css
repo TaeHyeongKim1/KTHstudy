@@ -1,0 +1,48 @@
+@charset "UTF-8";
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image:URL('https://park.airport.co.kr/resources/images/common/img-visual-01.png');
+    z-index:9999;
+    }t
+
+/* 컨테이너 스타일 */
+div{
+   width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 테이블 스타일 */
+table {
+	position:relative;
+	left:10%;
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background:white;
+    
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+table th {
+    background-color: #007bff;
+    color: #fff;
+}

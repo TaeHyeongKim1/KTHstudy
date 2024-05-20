@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공항 주차장 예약</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body{
+   		background-image:URL(	);
+   	 background-size: cover; /* 화면에 꽉 차도록 이미지 크기 조정 */
+    background-repeat: no-repeat; /* 이미지를 한 번만 표시 */
+   	}
+    
+    </style>
+</head>
+<body>
+  <div class="container">
+        <h2>공항 주차장 예약</h2>
+        <form action="reserveParking.jsp" method="post">
+            <label for="airport">공항 선택:</label>
+            <select id="airport" name="airport" required>
+                <option value="Incheon">인천국제공항</option>
+                <option value="Gimpo">김포국제공항</option>
+                <option value="Gimhae">김해국제공항</option>
+            </select><br><br>
+            <label for="parkingLot">주차장 선택:</label>
+            <select id="parkingLot" name="parkingLot" required>
+                <option value="A">주차장 A</option>
+                <option value="B">주차장 B</option>
+                <option value="C">주차장 C</option>
+            </select><br><br>
+            <label for="entryDate">입차 일자:</label>
+            <input type="date" id="entryDate" name="entryDate" required><br><br>
+            <label for="exitDate">출차 일자:</label>
+            <input type="date" id="exitDate" name="exitDate" required><br><br>
+            <label for="carNumber">차량 번호:</label>
+            <input type="text" id="carNumber" name="carNumber" required><br><br>
+            <input type="submit" value="예약하기">
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+   
+</body>
+</html>

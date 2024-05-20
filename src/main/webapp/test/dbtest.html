@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+
+	
+	</style>
+	<script type="text/javascript">
+
+	document.getElementById("parkingForm").addEventListener("submit", function(event) {
+	    event.preventDefault(); // 기본 동작(페이지 새로고침) 방지
+
+	    const carNumber = document.getElementById("carNumber").value;
+	    saveCarNumberToDatabase(carNumber);
+	});
+
+	function saveCarNumberToDatabase(carNumber) {
+	    // AJAX 요청을 사용하여 서버로 데이터 전송
+	    const xhr = new XMLHttpRequest();
+	    xhr.open("POST", "/saveCarNumber"); // 서버의 저장 경로 지정
+	    xhr.setRequestHeader("Content-Type", "application/json");
+	    xhr.send(JSON.stringify({ carNumber: carNumber }));
+	}
+	
+
+
+</script>
+</head>
+<body>
+<form id="parkingForm">
+    <label for="carNumber">차량 번호:</label>
+    <input type="text" id="carNumber" name="carNumber">
+    <button type="submit">예약하기</button>
+</form>
+
+</body>
+
+</html>
