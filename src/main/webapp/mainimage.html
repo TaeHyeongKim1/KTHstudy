@@ -9,8 +9,7 @@
 html, body { margin: 0; padding: 0; height: 100%; }
 header {
    width: 100%; 
-   height: 15%;
-    
+   height: 40px;
 }
 
 header {
@@ -37,10 +36,10 @@ aside {
    width: 15%; height: 70%; float: left;
    background: orange;
 }
-footer { 
+/* footer { 
    width: 100%; height: 15%; clear: both; 
    background: plum;
-}
+} */
 /* li{display:inline;} */
 
 html, body { margin: 0; padding: 0; height: 100%; }
@@ -81,7 +80,11 @@ html, body { margin: 0; padding: 0; height: 100%; }
 .horizontal-menu .submenu li {
     display: inline-block; /* 인라인 블록으로 설정 */
     flex: 1;
-    
+}
+
+.horizontal-menu .submenu .submenu1 li {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    flex: 1;
 }
 
 .horizontal-menu .submenu li a {
@@ -92,11 +95,9 @@ html, body { margin: 0; padding: 0; height: 100%; }
 }
 
 .horizontal-menu li:hover .submenu {
-    display: flex; 
-    /* Flexbox 적용 */
+    display: flex; /* Flexbox 적용 */
     flex-direction: row; /* 세로로 나오게 함 */
-    width: auto; 
-    /* 너비 자동 조정 */
+    width: auto;  /* 너비 자동 조정 */
 }
 
 ul {
@@ -113,14 +114,11 @@ ul {
 /*슬라이더  */
 #big_slide .sl_back a{
    display:none;
-   
 }
-#big_slide .sl_back #slBck_selected{
-   display:block;
-}
+
 #big_slide .sl_back img{
-     	width:100%;
-      height:500px;
+     width:100%;
+     height:650px;
 }
    
 #big_slide .sl_button{
@@ -133,14 +131,130 @@ ul {
    border-radius:999px;
    width:30px;
    height:30px;
+   display:none;/* 슬라이드버튼 숨기기 */
+}
+
+#big_slide .sl_back #slBck_selected{
+   display:block;
 }
 #big_slide .sl_button #slBtn_selected{
-   display:inline-block;
+   /* display:inline-block; */
+   display:none;  /* selected 된 슬라이드버튼 숨기기 */
    background-color:red;
    width:60px;
 /*    z-index:2; */
 }
 
+#footer {
+    position: relative;
+    z-index: 1;
+    padding: 30px 0;
+    background-color: #252525;
+}
+
+#footer .inner {
+    padding-left: 60px;
+}
+
+#footer address {
+    font-size: 20px;
+    font-style: normal;
+    color: #fff;
+    letter-spacing: -0.04em;
+    line-height: 1.48;
+}
+
+.foot_nav {
+    padding-top: 10px;
+    display: flex;
+}
+
+.foot_nav li {
+    position: relative;
+}
+
+.foot_nav li+li {
+    padding-left: 80px;
+}
+
+.foot_nav li a {
+    font-size: 20px;
+    color: #ccc;
+    letter-spacing: -0.04em;
+}
+
+.foot_nav li+li::before {
+    content: "l";
+    position: absolute;
+    left: 40px;
+    top: 0;
+    font-size: 24.97px;
+    color: #fff;
+    letter-spacing: -0.04em;
+}
+
+.foot_right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sign_up_box {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    padding-right: 80px;
+    /* border-bottom: 1px solid #fff; */
+    box-sizing: border-box;
+}
+
+.sign_up_box input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    font-size: 24.97px;
+    color: black;
+    letter-spacing: -0.04em;
+}
+
+.sign_up_box input::placeholder {
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.foot_right span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 24.97px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -0.04em;
+    cursor: pointer;
+}
+
+.copy {
+    padding-top: 50px;
+    padding-right: 13px;
+    text-align: right;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -0.04em;
+    font-size: 24.97px;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+ul {
+    list-style-type: none; /* 기본 기호 없애기 */
+    padding: 0; /* 기본 padding 없애기 */
+    margin: 0; /* 기본 margin 없애기 */
+}
+a{
+    cursor: pointer;
+}
 </style>
 <script type="text/javascript">
 // 버튼 갯수 저장하는 상수
@@ -159,7 +273,7 @@ window.onload=function(){
    var slBtnArr = document.querySelectorAll("#big_slide .sl_button input");
    slBtnArr[0].id = "slBtn_selected";
    // 5초 간격으로 아래에 함수를 -1을 전달하고 반복 호출
-   setInterval(ctrl_big_slide,2000,-1)
+   setInterval(ctrl_big_slide,3000,-1)
 }  
 
 
@@ -181,8 +295,14 @@ function ctrl_big_slide(num){
    btn_cursor = num
 }
 </script>
+<script>
+	function openPopup(url) {
+		window.open(url, '_blank', 'width=800,height=700');
+		return false;
+	}
+</script>
 </head>
-<body>
+<body id="content">
 <!-- <nav id="gnb" class="web"> -->
 <header>
 <div id="gnb" class="web">
@@ -193,30 +313,31 @@ function ctrl_big_slide(num){
                 <li><a href="reserveCheck.jsp">예약신청확인</a></li>
             </ul>
         </li>
-        <li><a href="/humandiscount/intro.do">중고차량조회</a>
-            <ul class="submenu">
-                <li><a href="/humandiscount/intro.do">기아</a></li>
-                <li><a href="/humandiscount/viewChk.do">현대</a></li>
-                <li><a href="/humandiscount/viewChk.do">삼성</a></li>
-            </ul>
-        </li>
-        <li><a href="/refund/privacy.do">로그인</a>
-<!--             <ul class="submenu">
+	        <li><a href="#">차량정보</a>
+	            <ul class="submenu">
+	                <li><a onclick="return openPopup('app_car_info_kia.html')" >기아</a></li>
+	                <li><a onclick="return openPopup('app_car_info_hyundai.html')" >현대</a></li>
+	                <li><a onclick="return openPopup('app_car_info_samsung.html')" >삼성</a></li>
+	            </ul>
+	        </li>
+        <li><a href="app_old_car.jsp">중고차량조회</a></li>
+        <li><a href="app_login.html">로그인</a>
+            <!--<ul class="submenu">
                 <li><a href="/refund/privacy.do">요금 환불 신청</a></li>
                 <li><a href="/refund/search.do">신청결과 조회</a></li>
             </ul> 
--->
+		-->
         </li>
-        <li><a href="/period/applyPage.do">회원가입</a>
-<!--             <ul class="submenu">
+        <li><a href="app_member_join.html">회원가입</a>
+            <!--<ul class="submenu">
                 <li><a href="/period/noticeList.do">공지사항</a></li>
                 <li><a href="/period/applyPage.do">이용안내</a></li>
                 <li><a href="/period/periodApply.do">정기권 현황/신청</a></li>
                 <li><a href="/period/refundList.do">정기권 환불</a></li>
             </ul> 
--->
+		-->
         </li>
-<!--         <li><a href="/notice/notice.do">이용안내</a>
+        <!--<li><a href="/notice/notice.do">이용안내</a>
             <ul class="submenu">
                 <li><a href="/notice/notice.do">이용안내</a></li>
                 <li><a href="/notice/questionsList.do">자주묻는 질문</a></li>
@@ -227,22 +348,102 @@ function ctrl_big_slide(num){
     </div>
 
 </header>
+<!-- <iframe iframe name="frame01" width="100%" height="650pt" > -->
      <div id="big_slide">
-      <div class="sl_back">
-         <a target="_parent" href="#">
-            <img src="https://park.airport.co.kr/resources/images/common/img-visual-01.png">
-         </a>
-         <a target="_parent" href="#">
-            <img src="https://park.airport.co.kr/resources/images/common/img-visual-02.png">
-         </a>
-      </div>
+      	<div class="sl_back">
+         	<a target="_parent" href="#">
+            	<img src="https://park.airport.co.kr/resources/images/common/img-visual-01.png">
+         	</a>
+         	<a target="_parent" href="#">
+            	<img src="https://park.airport.co.kr/resources/images/common/img-visual-02.png">
+         	</a>
+      	</div>
       <div class="sl_button">
       </div>
    </div> 
-<!--    </nav> -->
-<!--    <nav>네비게이션바</nav>
-   <section>섹션</section>
-   <aside>어사이드</aside>
-    <footer>아래(풋)</footer>-->
+<!--  </iframe> -->
+<!--
+    <nav>네비게이션바</nav>
+    <section>섹션</section>
+    <aside>어사이드</aside>
+    <footer>아래(풋)</footer>
+-->
+<footer id="footer">
+    <div class="inner">
+        <address>
+            휴먼공항주차예약센터<br />
+            경기도 팔달구 인계동<br />
+            Email : human@human.or.kr<br />
+            대표번호 : 010-2222-3333
+        </address>
+        <ul class="foot_nav">
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">무단이메일수집거부</a></li>
+        </ul>
+        <div class="foot_right">
+            <div class="sign_up_box">
+                 <input type="text" id="searchInput" placeholder="Search...">
+                 <span onclick="searchText()">검색</span>
+            </div>
+            <p class="copy">2024 © Humane Center</p>
+        </div>
+    </div>
+</footer>
+    <script>
+    // Add event listener for Enter key press
+    document.getElementById('searchInput').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            searchText();
+        }
+    });
+        function searchText() {
+            // Get the input value
+            var searchValue = document.getElementById('searchInput').value.toLowerCase();
+
+            // Clear previous highlights
+            clearHighlights(document.body);
+
+            if (searchValue) {
+                // Highlight matches
+                highlightText(document.body, searchValue);
+            }
+        }
+
+        function clearHighlights(element) {
+            var spans = element.querySelectorAll('span.highlight');
+            spans.forEach(function(span) {
+                var parent = span.parentNode;
+                parent.replaceChild(document.createTextNode(span.textContent), span);
+                parent.normalize(); // Merge adjacent text nodes
+            });
+        }
+
+        function highlightText(element, searchValue) {
+            if (element.nodeType === Node.TEXT_NODE) {
+                var text = element.textContent.toLowerCase();
+                var matchIndex = text.indexOf(searchValue);
+                if (matchIndex !== -1) {
+                    var originalText = element.textContent;
+                    var highlightedText = document.createElement('span');
+                    highlightedText.className = 'highlight';
+                    highlightedText.textContent = originalText.substring(matchIndex, matchIndex + searchValue.length);
+
+                    var afterText = document.createTextNode(originalText.substring(matchIndex + searchValue.length));
+                    var beforeText = document.createTextNode(originalText.substring(0, matchIndex));
+
+                    var parent = element.parentNode;
+                    parent.insertBefore(beforeText, element);
+                    parent.insertBefore(highlightedText, element);
+                    parent.insertBefore(afterText, element);
+                    parent.removeChild(element);
+                }
+            } else if (element.nodeType === Node.ELEMENT_NODE) {
+                element.childNodes.forEach(function(child) {
+                    highlightText(child, searchValue);
+                });
+            }
+        }
+    </script>
 </body>
 </html>

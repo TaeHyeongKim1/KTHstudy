@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+}
+
+.login-container {
+	max-width: 400px;
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	text-align: center;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"]
+	{
+	width: 95%;
+	padding: 8px;
+	font-size: 16px;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+#error-message {
+	color: red;
+	text-align: center;
+}
+
+.form-group-link {
+	display: flex;
+	margin: 10px;
+}
+		div a{
+			padding:10px;
+			text-decoration:none;
+			color:blue;
+			border-radius:5px;
+			margin-right:5px;
+		}
+.form-group-link div {
+	margin-right: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+a {
+	text-decoration: none;
+}
+
+.centered-title {
+	display: flex;
+	justify-content: center;
+}
+</style>
+</head>
+<body>
+	<div class="login-container">
+		<h2>Login</h2>
+		<form id="login-form" action="app_login.jsp">
+			<div class="form-group">
+				<label for="username">Username:</label> 
+				<input type="text" id="username" name="username" id="username" placeholder="username" required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label> <input type="password" id="password" name="password" id="password" placeholder="passwrod" value="" required>
+			</div>
+			<button type="submit">Login</button>
+			<div class="form-group-link">
+				<div>
+					<a href="#">Find ID</a>
+				</div>
+				<div>
+					<a href="#">Find PassWord</a>
+				</div>
+				<div>
+					<a href="app_member_join.html">Registration</a>
+				</div>
+			</div>
+			<div class="form-group centered-title" style="position: relative;">
+				<a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fcategory%3D25#login"
+					class="kakao" id="openid_kakao"> 
+					<img src="./images/kokao_login2.jpg" alt="카카오톡"
+					style="width: 40px; height: 40px"> <span></span>
+				</a> 
+				<a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"
+					class="naver" id="openid_naver"> 
+					<img src="./images/naver_login2.jpg" alt="네이버"
+					style="width: 40px; height: 40px"> <span></span>
+				</a>
+				<a href="https://appleid.apple.com/auth/authorize?response_type=code&response_mode=form_post&client_id=com.interpark.web.oidc&scope=name%20email&redirect_uri=https://accounts.interpark.com/web/open-id/auth/callback/apple?auto_login=N"
+					class="apple" id="openid_apple"> 
+					<img src="./images/apple_login2.jpg" alt="애플"
+					style="width: 40px; height: 40px"> <span></span>
+				</a>
+			</div>
+			<div id="error-message"></div>
+		</form>
+
+	</div>
+
+</body>
+</html>

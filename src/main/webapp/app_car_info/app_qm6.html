@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" href="/backweb/a00_com/a01_common.css"> -->
+<title>중고차량조회</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f0f0f0;
+}
+
+.form_container {
+    width: 500px;
+    padding: 20px;
+    background-color: black; /* 배경색 지정 */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.tablebox {
+    background-color: gray; /* 원하는 색상 값으로 변경 */
+}
+
+table td, th {
+	/*border: none;  테이블, th(테이블 헤더), td(테이블 셀)의 테두리를 없앱니다. */
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+}
+
+tr{
+	padding: 20px;
+}
+
+.fuel-options, .gear-options{
+	text-align: center;
+}
+
+input:hover, #kiacar:hover, #manufacturer:hover,
+#mileageFrom:hover, #mileageTo:hover, #carpriceForm:hover, #carpriceTo:hover,
+#carcolor:hover {
+	background: blue;
+}
+.buy{
+width:100px;
+height:40px;
+font-size:20px;
+color:black;
+text-align: center;
+}
+
+</style>
+</head>
+<body>
+	<div class="form_container">
+		<form action="app_car_info_list.jsp">
+			<table class="tablebox">
+				<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+				<tr>
+					<td colspan="4" style="padding: 0px; font-size: 24px; color:blue; text-align: center;">
+					<b>QM6</b>
+					<img src="../../app_project/images/samsung/qm6.jpg">
+					</td>
+				</tr>
+				<tr>
+					<td>제조사 :</td> <td colspan="3">르노삼성</td>
+				</tr>
+				<tr>
+					<td>엔진형식 :</td> <td colspan="3">2.0 LPe</td>
+				</tr>
+				<tr>
+					<td>연료 :</td> <td colspan="3">LPG</td>
+				</tr>
+				<tr>
+					<td>배기량 :</td> <td colspan="3">1,598cc</td>
+				</tr>
+				<tr>
+					<td>변속기 :</td> <td colspan="3">자동 변속기</td>
+				</tr>
+				<tr>
+					<td>가격 :</td> <td colspan="3">33,240,000원</td>
+				</tr>
+			</table>
+            <input type="hidden" name="carname" value="QM6">
+            <input type="hidden" name="carcorp" value="르노삼성">
+            <input type="hidden" name="carengin" value="2.0 LPe">
+            <input type="hidden" name="carfuel" value="LPG">
+            <input type="hidden" name="carcc" value="1,997cc">
+            <input type="hidden" name="cargear" value="자동 변속기">
+            <input type="hidden" name="carprice" value="33,240,000원">
+			<input class ="buy" type="submit" id = "buylise" value="구매하기"/> 
+		</form>
+	</div>
+	</script>
+</body>
+
+</html>

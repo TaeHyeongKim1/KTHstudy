@@ -18,9 +18,12 @@ public class Reservation {
          long durationInMillis = exitDate.getTime() - entryDate.getTime();
          int days = (int) Math.ceil((double) durationInMillis / millisecondsPerDay);
          if(days <=7) {
-         return days * DAILY_RATE;
-         }else
-         return days * DAILY_RATE * 0.7 ;
+        	 return days * DAILY_RATE;
+         }else if(days==30 || days==31){
+        	 return parkingMonth();
+         }else{
+        	 return days * DAILY_RATE * 0.7 ;
+         	  }
          }
     //정기권 차량 등록
     public int parkingMonth() {

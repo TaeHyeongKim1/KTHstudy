@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" href="/backweb/a00_com/a01_common.css"> -->
+<title>중고차량조회</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f0f0f0;
+}
+
+.form_container {
+    width: 480px;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #00008B;
+    /* background: linear-gradient(to right, #3498db, #2980b9); */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+
+.tablebox {
+    background-color:gray; /* 원하는 색상 값으로 변경 */
+}
+
+table td, th {
+	/*border: none;  테이블, th(테이블 헤더), td(테이블 셀)의 테두리를 없앱니다. */
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+	color:black;
+}
+
+tr{
+	padding: 20px;
+}
+
+.fuel-options, .gear-options{
+	text-align: center;
+}
+
+input:hover, #kiacar:hover, #manufacturer:hover,
+#mileageFrom:hover, #mileageTo:hover, #carpriceForm:hover, #carpriceTo:hover,
+#carcolor:hover {
+	background: #98FB98;
+}
+.buy{
+width:100px;
+height:40px;
+font-size:20px;
+color:black;
+text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="form_container">
+		<form action="app_car_info_list.jsp">
+			<table class="tablebox">
+				<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+				<tr>
+					<td colspan="4" style="padding: 0px; font-size: 24px; color:blue; text-align: center;">
+					<b>아반떼</b>
+					<img src="../../app_project/images/hyundai/avante.png">
+					</td>
+				</tr>
+				<tr>
+					<td>제조사 :</td> <td colspan="3">현대자동차</td>
+				</tr>
+				<tr>
+					<td>엔진형식 :</td> <td colspan="3">1.6L</td>
+				</tr>
+				<tr>
+					<td>연료 :</td> <td colspan="3">가솔린</td>
+				</tr>
+				<tr>
+					<td>배기량 :</td> <td colspan="3">1,598 cc</td>
+				</tr>
+				<tr>
+					<td>변속기 :</td> <td colspan="3">무단변속기(IVT)</td>
+				</tr>
+				<tr>
+					<td>가격 :</td> <td colspan="3">20,000,000원</td>
+				</tr>
+			</table>
+            <input type="hidden" name="carname" value="아반떼">
+            <input type="hidden" name="carcorp" value="현대자동차">
+            <input type="hidden" name="carengin" value="1.6L">
+            <input type="hidden" name="carfuel" value="가솔린">
+            <input type="hidden" name="carcc" value="1,598 cc">
+            <input type="hidden" name="cargear" value="무단변속기(IVT)">
+            <input type="hidden" name="carprice" value="20,000,000원">
+			<input class ="buy" type="submit" id = "buylise" value="구매하기"/> 
+		</form>
+	</div>
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style type="text/css">
+
+/*버튼에 마우스를 올렸을 시 커서를 포인터로 바꿈.*/
+button{cursor: pointer;}
+/*onclick 기능이 있는 요소에 마우스 올렸을 시 커서를 포인터로 바꿈.*/
+[onclick] {cursor:pointer;}
+
+#recomCars{
+	left:8%;
+	width: 480px;
+	height: 300px;
+	margin-top: 20px;
+	margin-left: 10px;
+	overflow: hidden;
+}
+#recomCars button:nth-child(2){ margin-right:0; }
+#recomCars #rTitle{
+	margin-bottom:15px;
+	font-size: 25px;
+	font-weight: bold; /*font-weight: 900;*/
+}
+#rCars{
+	white-space: nowrap;
+}
+
+#rCars01{
+	white-space: nowrap;
+}
+#rUTL, #rUTR{
+	border-color: white; font-weight: bold; color: white;
+}
+#rUTL:hover, #rUTR{
+	cursor: pointer;
+}
+#rCars>div{
+	width: 155px; height: 150px;
+	display: inline-block;
+	overflow: hidden;
+	transition: transform 0.5s ease; 
+	text-align: center;
+}
+#rCars div img{ 
+	width: 100%;
+	height: auto;
+}
+
+	#rCars>.carItem{
+	width: 155px; height: 150px;
+	overflow: hidden;
+}
+#rCars>.carInf{
+	width: 155px; height: 100px;
+	overflow: hidden;
+}
+
+#rCars>.carItem{
+	z-index: 1;
+}
+#rCars img:hover {
+	transform: scale(1.1); 
+	filter: brightness(110%);
+	transition: transform 0.5s ease; 
+}
+#rCars img{position: relative;}
+
+#rUnderTitleBtn{ display:inline-block; }
+#rUnderTitleBtn{
+	margin-bottom: 23px;
+	margin-right: 15px;
+	display: flex; justify-content: flex-end;
+	height: 30px;line-height: 25px; 
+}
+.carInf{font-weight: bold;text-align: left;}
+#remote>button{z-index:9996; }
+
+.allRCars{
+display:block;
+}
+
+.carimgsize img {
+    width: 100%;
+    height: 100%;
+}
+
+.arrow img {
+    width: 20px;
+    height: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 400px; 
+}
+
+</style>
+	
+</head>
+<body>
+<div style="text-align:center;"><h1>차량정보</h1></div>
+<div class="container">
+	<div class="box" id="box1">
+		<div id = recomCars>
+			<div id = rUnderTitle>
+				<div id = rUnderTitleBtn>
+					<span><b>[기아자동차]</b>&nbsp;&nbsp;</span>
+					<img src="./images/kia_logo.png" alt="kiaauto">
+						<!--<button id = rUTL onclick = "recomOptsLeftSlide()">&lt;</button>
+					<button id = rUTR onclick = "recomOptsRightSlide()">&gt;</button> -->
+					
+					<!--<button id = rUTL onclick = "recomOptsLeftSlide()"><div class="arrow"><img src="./images/left.png" alt="Previous"></div></button>		
+					<button id = rUTL onclick = "recomOptsRightSlide()"><div class="arrow"><img src="./images/right.png" alt="Next"></div></button> -->	
+					<div id = rUTL onclick = "recomOptsLeftSlide()" class="arrow">
+						<img src="./images/left.png" alt="Previous">
+					</div>		
+					<div id = rUTL onclick = "recomOptsRightSlide()" class="arrow">
+						<img src="./images/right.png" alt="Next">
+					</div>	
+					<!-- 
+					<button id="rUTL" onclick="recomOptsLeftSlide()" style="background-color: blue;">
+					    <img src="./images/lefg.png" alt="Previous">
+					</button>
+					<button id="rUTR" onclick="recomOptsRightSlide()" style="background-color: red;">
+					    <img src="./images/right.png" alt="Next">
+					</button>
+					-->
+				</div>
+			</div>
+			<div id = allRCars>
+				<div id = rCars>
+					<div class = "carItem">
+						<div class="carimgsize">
+							<a href=""><img src = "./images/kia/k3.png" alt= img1></a>
+						</div>
+						<div class = carInf>K3</div>
+					</div>
+					<div class = "carItem">
+						<div class="carimgsize">
+							<a href="./app_car_info/app_k5.html">
+							<img src = "./images/kia/k5.png" alt= img2></a>
+						</div>
+						<div class = carInf>K5</div>
+					</div>
+					<div class = "carItem">
+						<div class="carimgsize">
+							<a href=""><img src = "./images/kia/k8.png" alt= img3></a>
+						</div>
+						<div class = carInf>K8</div>
+					</div>
+					<div class = "carItem">
+						<div>
+							<a href=""><img src = "./images/kia/mohave.png" alt= img4></a>
+						</div>
+						<div class = carInf>모하비</div>
+					</div>
+					<div class = "carItem">
+						<div>
+							<a href=""><img src = "./images/kia/niro.png" alt= img5></a>
+						</div>
+						<div class = carInf>니로</div>
+					</div>
+					<div class = "carItem">
+						<div>
+							<a href=""><img src = "./images/kia/ray.png" alt= img6></a>
+						</div>
+						<div class = carInf>레이</div>
+					</div>
+					<div class = "carItem">
+						<div>
+							<a href=""><img src = "./images/kia/sorento.png" alt= img7></a>
+						</div>
+						<div class = carInf>쏘렌토</div>
+					</div>
+					<div class = "carItem">
+						<div>
+							<a href=""><img src = "./images/kia/sportage.png" alt= img8></a>
+						</div>
+						<div class = carInf>스포티지</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	//현재 보여줄 차량창
+	var slideCnt = 1; 
+	//추천차량이미지를 전부 선택
+	var recomOpts = document.querySelectorAll("#rCars img");
+	//추천차량이미지에 전부 이미지 삽입(소스)
+/* 	for(var i=0;i<recomOpts.length;i++){
+		recomOpts[i].src = "recGameImages/rcmcarImage"+(i+1)+".png"
+	} */
+	//추천차량이미지 들어갈 div들 전부 선택
+	var recomOptsDivs = document.querySelectorAll("#rCars>div");
+	//오른쪽버튼을 눌렀을 때 오른쪽에서 왼쪽으로 차량이 하나씩 넘어가는 기능 
+	function recomOptsRightSlide(){
+		if(slideCnt==6)
+			return;
+		slideCnt++;
+		for (var i = 0;i<recomOptsDivs.length;i++){
+			recomOptsDivs[i].style.transform = "translateX(" + 
+					(slideCnt -1) * -160+ "px)";
+		}
+	}
+	//왼쪽버튼을 눌렀을 때 왼쪽에서 오른쪽으로 차량이 하나씩 넘어가는 기능
+	function recomOptsLeftSlide(){
+		if(slideCnt==1)
+			return;
+		slideCnt--;
+		for (var i = 0;i<recomOptsDivs.length;i++){
+			recomOptsDivs[i].style.transform = "translateX(" + 
+			(slideCnt -1) * -160+ "px)";
+		}
+	}
+
+</script>
+</html>
